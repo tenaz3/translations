@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  server:
+    image: translate-images
+    build: .
+    command: bash -c "python3 converter.py /in/IMG_1943.png"
+    volumes:
+        - ./in:/in
+        - ./out:/out
