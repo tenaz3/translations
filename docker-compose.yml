@@ -1,10 +1,13 @@
+# docker-compose up  --remove-orphans
+# Languages: eng (English), por (Portuguese), deu (German)
 version: '3'
 
 services:
-  server:
+  translator:
     image: translate-images
     build: .
-    command: bash -c "python3 converter.py /in/IMG_1943.png"
+    # command: bash -c "python3 converter.py '-l eng --oem 1 --psm 3'"
+    command: bash -c "python3 converter.py"
     volumes:
         - ./in:/in
         - ./out:/out

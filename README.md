@@ -1,16 +1,8 @@
-### Source 
-> https://www.learnopencv.com/deep-learning-based-text-recognition-ocr-using-tesseract-and-opencv/#usage
+### Usage
 
-### Instalation
-```bash
-brew update
-brew install tesseract --HEAD
-brew install tesseract-lang
-pip3 install pytesseract
-pip3 install -r requirements.txt
-```
+> Add images into `in` folder and text will be created in `out` folder
 
-Checkout the project and get the converter.py
+> Run:
 ```bash
-python3 converter.py images/27.jpeg
+docker-compose up
 ```
