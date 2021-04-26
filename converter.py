@@ -29,13 +29,13 @@ if __name__ == "__main__":
     agrs_size = len(sys.argv)
     image_list = []
     path = "/in/"
-    valid_images = [".jpg", ".jpeg", ".png"]
-    
+
     _, _, image_list = next(walk(path))
 
     if agrs_size == 2:
         config = sys.argv[1]
 
     for image_path in image_list:
-        text = analyse_image(path + image_path)
-        save_text(image_path, text)
+        if not image_path.startswith('.DS_Store'):
+            text = analyse_image(path + image_path)
+            save_text(image_path, text)
