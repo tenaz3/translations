@@ -1,7 +1,6 @@
 # docker image build -t translate-images .
 FROM python:3.7
 WORKDIR /
-
 RUN apt-get update \
     && apt-get install -y \
         build-essential \
@@ -27,13 +26,12 @@ RUN apt-get --fix-missing update \
     && apt-get install -y tesseract-ocr tesseract-ocr-all \
     && apt-get install -y libtesseract-dev \
     && apt-get install -y libleptonica-dev \
-    && ldconfig && apt install -y libsm6 libxext6 \
-    && apt install -y python-opencv
+    && ldconfig && apt install -y libsm6 libxext6
 
 
 COPY ./requirements.txt ./ 
 COPY ./converter.py ./
 COPY ./in/ ./in/
+RUN pip3 install opencv-python
 RUN pip3 install --upgrade pip
-
 RUN pip3 install -r requirements.txt
